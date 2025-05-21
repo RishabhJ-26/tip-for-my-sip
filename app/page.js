@@ -42,7 +42,7 @@ export default function Home() {
           A crowdfunding platform for creators to fund their projects.
         </p>
         <div className="text-center md:text-left">
-         <p  className="text-center p-3 ">What fuels the soul when spirits wane? A @&apos;Tip for My Sip&apos;
+         <p  className="text-center p-3 ">What fuels the soul when spirits wane? A &apos;Tip for My Sip&apos;
 , to ease the pain.</p>
          <p className="text-center p-3">Will you contribute, lend a hand? And help the artist understand.</p>
         </div>
