@@ -42,7 +42,8 @@ export default function Home() {
           A crowdfunding platform for creators to fund their projects.
         </p>
         <div className="text-center md:text-left">
-         <p  className="text-center p-3 ">What fuels the soul when spirits wane? A 'Tip for My Sip,' to ease the pain.</p>
+         <p  className="text-center p-3 ">What fuels the soul when spirits wane? A @&apos;Tip for My Sip&apos;
+, to ease the pain.</p>
          <p className="text-center p-3">Will you contribute, lend a hand? And help the artist understand.</p>
         </div>
         <div className="pb-6 mb-5">
@@ -119,7 +120,7 @@ export default function Home() {
     Your Small Tip, Their Big Dream
   </p>
   <p className="text-2xl md:text-3xl font-semibold bg-gradient-to-r from-purple-400 via-pink-400 to-blue-400 bg-clip-text text-transparent leading-relaxed">
-    Whether it's a coffee or a kind word — every gesture counts.
+    Whether it&apos;s a coffee or a kind word — every gesture counts.
   </p>
 </div>
 <div className="bg-white h-1 opacity-10"></div>

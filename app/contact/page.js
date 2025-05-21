@@ -38,7 +38,7 @@ const Contact = () => {
     <div className="container mx-auto px-8 md:px-4 py-8 text-white">
       <h1 className="text-3xl font-semibold mb-6">Contact Us</h1>
       <p className="mb-6 text-lg">
-        Have questions or want to get in touch? Fill out the form below and we'll get back to you as soon as possible.
+        Have questions or want to get in touch? Fill out the form below and we&apos;ll get back to you as soon as possible.
       </p>
       <form onSubmit={handleSubmit} className="max-w-lg mx-auto bg-gray-800 p-6 rounded-lg shadow-lg">
         <div className="mb-4">
