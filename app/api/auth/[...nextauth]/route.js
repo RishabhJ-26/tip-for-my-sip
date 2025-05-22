@@ -4,43 +4,51 @@ import GitHubProvider from "next-auth/providers/github";
 import connectDb from "@/db/connectDb";
 import User from "@/models/User";
 
-const authOptions = {
+const handler = NextAuth({
   providers: [
-    GitHubProvider({
-      clientId: process.env.GITHUB_ID,
-      clientSecret: process.env.GITHUB_SECRET,
-    }),
     GoogleProvider({
       clientId: process.env.GOOGLE_ID,
       clientSecret: process.env.GOOGLE_SECRET,
     }),
+    GitHubProvider({
+      clientId: process.env.GITHUB_ID,
+      clientSecret: process.env.GITHUB_SECRET,
+    }),
   ],
   secret: process.env.NEXTAUTH_SECRET,
   callbacks: {
-    async signIn({ user, account }) {
-      await connectDb();
-      const existingUser = await User.findOne({ email: user.email });
-      if (!existingUser) {
-        await User.create({
-          email: user.email,
-          username: user.email.split("@")[0],
-        });
+    async signIn({ user }) {
+      try {
+        await connectDb();
+        const existingUser = await User.findOne({ email: user.email });
+        if (!existingUser) {
+          await User.create({
+            email: user.email,
+            username: user.email.split("@")[0],
+          });
+        }
+        return true;
+      } catch (err) {
+        console.error("SignIn error:", err);
+        return false;
       }
-      return true;
     },
+
     async session({ session }) {
-      const dbUser = await User.findOne({ email: session.user.email });
-      if (dbUser) {
-        const userObj = dbUser.toObject();
-        session.user.name = userObj.username || userObj.name || session.user.name;
-        session.user.profilepic = userObj.profilepic || null;
+      try {
+        await connectDb();
+        const dbUser = await User.findOne({ email: session.user.email });
+        if (dbUser) {
+          session.user.name = dbUser.username || session.user.name;
+          session.user.profilepic = dbUser.profilepic || null;
+        }
+        return session;
+      } catch (err) {
+        console.error("Session error:", err);
+        return session;
       }
-      return session;
     },
   },
-};
+});
 
-const handler = NextAuth(authOptions);
-
-export const GET = handler;
-export const POST = handler;
+export { handler as GET, handler as POST };
