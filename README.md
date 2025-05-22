@@ -101,7 +101,7 @@ npm start
 ### 🔹 Homepage
 ![Homepage](./public/ss1.png)
 
-### 🔹 Creator Profile
+### 🔹 Authentication
 ![Creator Profile](./public/ss2.png)
 
 ### 🔹 Tip Confirmation
