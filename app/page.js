@@ -72,7 +72,7 @@ export default function Home() {
       {/* Benefits Section */}
       <div className="text-white container mx-auto pb-32 pt-14 px-10">
         <h2 className="text-3xl font-bold text-center mb-14">
-          Your Fans can buy you a Chai
+          Your fans can send you a Tip
         </h2>
         <div className="flex flex-col md:flex-row gap-8 md:gap-5 justify-around">
           <div className="item space-y-3 flex flex-col items-center justify-center">
